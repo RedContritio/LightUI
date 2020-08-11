@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightUI", "LightUI.csproj", "{BD602277-2A50-4D8E-AD60-2C62DFA8BFAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD602277-2A50-4D8E-AD60-2C62DFA8BFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD602277-2A50-4D8E-AD60-2C62DFA8BFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD602277-2A50-4D8E-AD60-2C62DFA8BFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD602277-2A50-4D8E-AD60-2C62DFA8BFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8B340F9-DC28-4C3C-826D-78DA32D3AF61}
+	EndGlobalSection
+EndGlobal
