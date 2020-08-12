@@ -1,5 +1,4 @@
-﻿using BepInEx;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +11,15 @@ using UnityUIKit.GameObjects;
 
 namespace LightUI
 {
-    [BepInPlugin(GUID, "LightUI", Version)]
-    [BepInProcess("The Scroll Of Taiwu Alpha V1.0.exe")]
-    public partial class GUI
+    public partial class LightUI
     {
-        /// <summary>GUID</summary>
-        public const string GUID = "LightUI";
-        /// <summary>版本</summary>
-        public const string Version = "1.0.0";
 
         public const int defaultLineHeight = 60;
 
         private Manager manager = new Manager();
 
         private Stack<ManagedGameObject> layers = new Stack<ManagedGameObject>();
+
 
         /// <summary>
         /// 获取指定的对象（对象集合）
@@ -43,7 +37,7 @@ namespace LightUI
         /// </summary>
         /// <param name="type">要查询的对象类型</param>
         /// <returns></returns>
-        public IEnumerable<ManagedGameObject> Find(GUI.GUIElementType type)
+        public IEnumerable<ManagedGameObject> Find(LightUI.GUIElementType type)
         {
             return manager.Find(type);
         }
@@ -55,18 +49,22 @@ namespace LightUI
         /// <param name="ID">该布局元素的ID</param>
         /// <param name="spacing">子元素之间的空格</param>
         /// <param name="defaultActive">默认是否可见</param>
+        /// <returns>布局深度</returns>
         public int BeginVertical(Expansion expansion = Expansion.AutoSize, string ID = null, int spacing = 10, bool defaultActive = true)
         {
             int depth = layers.Count;
+            ManagedGameObject obj = null;
             switch (expansion)
             {
                 case Expansion.Fixed:
-                    layers.Push(CreateEmptyContainer(ID, Direction.Vertical, spacing, defaultActive: defaultActive));
+                    obj = CreateEmptyContainer(ID, Direction.Vertical, spacing, defaultActive: defaultActive);
                     break;
                 case Expansion.AutoSize:
-                    layers.Push(CreateEmptyAutoSizeBox(ID, Direction.Vertical, spacing, defaultActive));
+                    obj = CreateEmptyAutoSizeBox(ID, Direction.Vertical, spacing, defaultActive);
                     break;
             }
+            layers.Push(obj);
+            manager.Register(obj, ID);
             return depth;
         }
 
@@ -88,18 +86,22 @@ namespace LightUI
         /// <param name="ID">该布局元素的ID</param>
         /// <param name="spacing">子元素之间的空格</param>
         /// <param name="defaultActive">默认是否可见</param>
+        /// <returns>布局深度</returns>
         public int BeginHorizontal(Expansion expansion = Expansion.AutoSize, string ID = null, int spacing = 10, bool defaultActive = true)
         {
             int depth = layers.Count;
-            switch(expansion)
+            ManagedGameObject obj = null;
+            switch (expansion)
             {
                 case Expansion.Fixed:
-                    layers.Push(CreateEmptyContainer(ID, Direction.Horizontal, spacing, defaultActive: defaultActive));
+                    obj = CreateEmptyContainer(ID, Direction.Horizontal, spacing, defaultActive: defaultActive);
                     break;
                 case Expansion.AutoSize:
-                    layers.Push(CreateEmptyAutoSizeBox(ID, Direction.Horizontal, spacing, defaultActive));
+                    obj = CreateEmptyAutoSizeBox(ID, Direction.Horizontal, spacing, defaultActive);
                     break;
             }
+            layers.Push(obj);
+            manager.Register(obj, ID);
             return depth;
         }
 
@@ -109,7 +111,7 @@ namespace LightUI
         public ManagedGameObject EndHorizontal()
         {
             ManagedGameObject obj = layers.Pop();
-            if(layers.Count > 0)
+            if (layers.Count > 0)
                 layers.Peek().Children.Add(obj);
             return obj;
         }

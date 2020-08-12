@@ -1,6 +1,6 @@
 ﻿namespace LightUI
 {
-    public partial class GUI
+    public partial class LightUI
     {
         public enum GUIElementType
         {

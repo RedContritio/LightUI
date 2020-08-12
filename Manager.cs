@@ -13,15 +13,15 @@ namespace LightUI
 {
     class Manager
     {
-        private readonly Dictionary<GUI.GUIElementType, Type> TypeMap = new Dictionary<GUI.GUIElementType, Type>() {
-            { GUI.GUIElementType.Label, typeof(TaiwuLabel)},
-            { GUI.GUIElementType.Toggle, typeof(TaiwuToggle) },
-            { GUI.GUIElementType.Slider, typeof(TaiwuSlider) },
-            { GUI.GUIElementType.Button, typeof(TaiwuButton) },
-            { GUI.GUIElementType.InputField, typeof(TaiwuInputField) },
-            { GUI.GUIElementType.ToggleGroup, typeof(ToggleGroup) },
-            { GUI.GUIElementType.Box, typeof(BoxAutoSizeModelGameObject) },
-            { GUI.GUIElementType.Container, typeof(Container) }
+        private readonly Dictionary<LightUI.GUIElementType, Type> TypeMap = new Dictionary<LightUI.GUIElementType, Type>() {
+            { LightUI.GUIElementType.Label, typeof(TaiwuLabel)},
+            { LightUI.GUIElementType.Toggle, typeof(TaiwuToggle) },
+            { LightUI.GUIElementType.Slider, typeof(TaiwuSlider) },
+            { LightUI.GUIElementType.Button, typeof(TaiwuButton) },
+            { LightUI.GUIElementType.InputField, typeof(TaiwuInputField) },
+            { LightUI.GUIElementType.ToggleGroup, typeof(ToggleGroup) },
+            { LightUI.GUIElementType.Box, typeof(BoxAutoSizeModelGameObject) },
+            { LightUI.GUIElementType.Container, typeof(Container) }
         };
 
         public Dictionary<string, ManagedGameObject> ID2OBJ = new Dictionary<string, ManagedGameObject>();
@@ -71,7 +71,7 @@ namespace LightUI
         /// </summary>
         /// <param name="type">要查询的对象类型</param>
         /// <returns></returns>
-        public IEnumerable<ManagedGameObject> Find(GUI.GUIElementType type)
+        public IEnumerable<ManagedGameObject> Find(LightUI.GUIElementType type)
         {
             if(TypeMap.TryGetValue(type, out Type t))
             {

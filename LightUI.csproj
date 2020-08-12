@@ -83,7 +83,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI.cs" />
+    <Compile Include="LightUI.cs" />
+    <Compile Include="LightUIModule.cs" />
     <Compile Include="GUIElementType.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
