@@ -20,7 +20,7 @@ namespace LightUI
         /// <summary>GUID</summary>
         public const string GUID = "0.LightUI";
         /// <summary>版本</summary>
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
 
         public new static ManualLogSource Logger;
 

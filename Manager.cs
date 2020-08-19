@@ -52,6 +52,42 @@ namespace LightUI
             return true;
         }
 
+        public bool Unregister(ManagedGameObject @object, string ID)
+        {
+            if (!OBJ_SET.Contains(@object))
+                return false;
+            OBJ_SET.Remove(@object);
+
+            if (ID2OBJ.ContainsKey(ID))
+                ID2OBJ.Remove(ID);
+
+            return true;
+        }
+
+        public bool UpdateKey(string OldID, string NewID)
+        {
+            if(!ID2OBJ.ContainsKey(OldID) || OldID == NewID)
+                return false;
+
+            ID2OBJ.Add(NewID, ID2OBJ[OldID]);
+            ID2OBJ.Remove(OldID);
+            return true;
+        }
+
+        public bool UpdateKey(ManagedGameObject @object, string OldID, string NewID)
+        {
+            if(@object == null)
+                return false;
+            Unregister(@object, OldID);
+
+            return Register(@object, NewID);
+        }
+
+        public bool IsRegistered(ManagedGameObject @object)
+        {
+            return OBJ_SET.Contains(@object);
+        }
+
         /// <summary>
         /// 获取指定的对象（对象集合）
         /// </summary>

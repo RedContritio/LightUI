@@ -83,6 +83,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\Button.cs" />
+    <Compile Include="Component\InputField.cs" />
+    <Compile Include="Component\Label.cs" />
+    <Compile Include="Component\Slider.cs" />
+    <Compile Include="Component\Toggle.cs" />
+    <Compile Include="Component\ToggleGroup.cs" />
     <Compile Include="LightUI.cs" />
     <Compile Include="LightUIModule.cs" />
     <Compile Include="GUIElementType.cs" />
