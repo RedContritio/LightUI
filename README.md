@@ -18,20 +18,32 @@ public LightUI.LightUI guiLayout = new LightUI.LightUI();
 
 提供的方法有如下：
 
-+ BeginVertical 开始创建竖直布局
-+ EndVertical 结束竖直布局创建，返回布局元素
-+ BeginHorizontal 开始创建水平布局
-+ EndHorizontal 结束水平布局创建，返回布局元素
-+ Label 在布局内添加一个标签
-+ Toggle 在布局内添加一个单选框
-+ Slider 在布局内添加一个滑条
-+ Button 在布局内添加一个按钮
-+ InputField 在布局内添加一个文本编辑框
-+ ToggleGroup 在布局内添加一个单选组（多个单选框只能同时选中一个）
-+ Space 在布局内添加一个空格
-+ Find
-  + 根据ID查找元素
-  + 根据元素类型获取该类型的元素集合
++ 布局操作
+  + BeginVertical 开始创建竖直布局
+  + EndVertical 结束竖直布局创建，返回布局元素
+  + BeginHorizontal 开始创建水平布局
+  + EndHorizontal 结束水平布局创建，返回布局元素
++ 创建组件
+  + Label 在布局内添加一个标签
+  + Toggle 在布局内添加一个单选框
+  + Slider 在布局内添加一个滑条
+  + Button 在布局内添加一个按钮
+  + InputField 在布局内添加一个文本编辑框
+  + ToggleGroup 在布局内添加一个单选组（多个单选框只能同时选中一个）
+  + Space 在布局内添加一个空格
++ 查询元素
+  + Find
+    + 根据ID查找元素
+    + 根据元素类型获取该类型的元素集合
++ 修改操作：修改最近一个被添加的元素，可以是布局元素，如果修改失败返回 false
+  + SetBold 设置上一个元素是否加粗
+  + SetOutline 设置上一个元素是否有轮廓线
+  + SetDefaultActive 设置上一个元素的默认可见情况
+  + SetID 设置上一个元素的ID
+  + SetPreferredSize 设置上一个元素的默认大小
+  + SetText 设置上一个元素的文本内容
+
+
 
 一个对`SettingUI`赋值的简单例子如下：
 
